@@ -226,5 +226,8 @@ func (m *customCatModel) SearchNumber(ctx context.Context, communityId, keyword 
 	}
 	counts := fmt.Sprint(r["count"])
 	num, err := strconv.ParseInt(counts, 10, 64)
+	if err != nil {
+		return -1, err
+	}
 	return num, nil
 }
